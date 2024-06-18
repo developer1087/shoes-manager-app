@@ -1,0 +1,16 @@
+.shoe-card {
+  width: 200px;
+  height: 300px;
+  border: 0.5px solid grey;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.shoe-card img {
+  width: 100%;
+}

@@ -1,0 +1,17 @@
+.header-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #fff5e1;
+}
+
+h2 {
+  color: #0c1844;
+}
+
+.nav-container * {
+  text-decoration: none;
+  margin-right: 1rem;
+  color: #0c1844;
+}

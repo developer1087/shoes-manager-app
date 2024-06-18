@@ -1,0 +1,9 @@
+export { default as HomePage } from "./pages/HomePage/HomePage";
+export { default as GalleryPage } from "./pages/GalleryPage/GalleryPage";
+export { default as NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
+export { default as ShoeFormModal } from "./modals/ShoeFormModal/ShoeFormModal";
+export { default as SingleShoeModal } from "./modals/SingleShoeModal/SingleShoeModal";
+export { default as Footer } from "./components/Footer/Footer";
+export { default as Header } from "./components/Header/Header";
+export { default as ShoeCard } from "./components/ShoeCard/ShoeCard";
+export { default as Spinner } from "./components/Spinner/Spinner";

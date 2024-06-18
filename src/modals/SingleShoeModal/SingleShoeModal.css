@@ -1,0 +1,14 @@
+.modal-container {
+  position: absolute;
+  z-index: 10;
+  /* top: 0;
+  right: 0; */
+  width: 70%;
+  margin: auto;
+  height: 70vh;
+  margin-bottom: 4rem;
+}
+
+.modal-container img {
+  width: 100%;
+}

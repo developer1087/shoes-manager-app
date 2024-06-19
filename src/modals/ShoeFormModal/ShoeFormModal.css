@@ -3,16 +3,29 @@
   z-index: 10;
   /* top: 0;
   right: 0; */
-  width: 70%;
+  width: 30%;
   margin: auto;
-  height: 70vh;
+  height: 80vh;
   margin-bottom: 4rem;
   background: #c80036;
 }
 
 .form-container form {
   height: 100%;
+  width: 50%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  padding: 2rem 0;
+}
+
+.form-container input {
+  padding: 1rem;
+}
+
+.form-container button {
+  background: #0c1844;
+  color: #fcfcfc;
+  padding: 1rem;
 }

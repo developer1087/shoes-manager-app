@@ -1,14 +1,25 @@
 .modal-container {
   position: absolute;
   z-index: 10;
-  /* top: 0;
-  right: 0; */
-  width: 70%;
+  width: 200px;
   margin: auto;
-  height: 70vh;
+  height: 250px;
   margin-bottom: 4rem;
+  background: #fff5e1;
 }
 
 .modal-container img {
-  width: 100%;
+  width: 150px;
+}
+
+.buttons-container button {
+  background: #0c1844;
+  padding: 0.5rem;
+  border: none;
+  color: #fcfcfc;
+  margin: 0.5rem;
+}
+
+.x {
+  cursor: pointer;
 }

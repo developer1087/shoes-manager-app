@@ -6,10 +6,17 @@ import { AppContext } from "../../context/AppContext";
 import "./GalleryPage.css";
 import SingleShoeModal from "../../modals/SingleShoeModal/SingleShoeModal";
 const GalleryPage = () => {
-  const { data, showModal, selectedShoe, showFormModal, setShowFormModal } =
-    useContext(AppContext);
+  const {
+    data,
+    showModal,
+    selectedShoe,
+    showFormModal,
+    setShowFormModal,
+    setIsEdit,
+  } = useContext(AppContext);
 
   const handleClick = () => {
+    setIsEdit(false);
     setShowFormModal(true);
   };
 
@@ -22,7 +29,9 @@ const GalleryPage = () => {
         {showModal && <SingleShoeModal selectedShoe={selectedShoe} />}
         {showFormModal && <ShoeFormModal />}
       </div>
-      <button onClick={handleClick}>ADD NEW SHOE</button>
+      <button onClick={handleClick} className="add-btn">
+        ADD NEW SHOE
+      </button>
     </div>
   );
 };

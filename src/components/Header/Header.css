@@ -1,4 +1,5 @@
 .header-container {
+  position: relative;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -14,4 +15,8 @@ h2 {
   text-decoration: none;
   margin-right: 1rem;
   color: #0c1844;
+}
+
+.logo-container * {
+  text-decoration: none;
 }

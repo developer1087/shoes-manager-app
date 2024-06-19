@@ -5,6 +5,7 @@ const API_URL =
 
 export const getShoes = async () => {
   try {
+    // setIsLoading(true);
     const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {

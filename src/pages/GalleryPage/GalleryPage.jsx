@@ -5,6 +5,7 @@ import { AppContext } from "../../context/AppContext";
 
 import "./GalleryPage.css";
 import SingleShoeModal from "../../modals/SingleShoeModal/SingleShoeModal";
+import Spinner from "../../components/Spinner/Spinner";
 const GalleryPage = () => {
   const {
     data,
@@ -13,6 +14,7 @@ const GalleryPage = () => {
     showFormModal,
     setShowFormModal,
     setIsEdit,
+    isLoading,
   } = useContext(AppContext);
 
   const handleClick = () => {
@@ -22,16 +24,22 @@ const GalleryPage = () => {
 
   return (
     <div className="main-container">
-      <div className="gallery-container">
-        {data.map((shoe) => {
-          return <ShoeCard key={shoe.id} shoe={shoe} />;
-        })}
-        {showModal && <SingleShoeModal selectedShoe={selectedShoe} />}
-        {showFormModal && <ShoeFormModal />}
-      </div>
-      <button onClick={handleClick} className="add-btn">
-        ADD NEW SHOE
-      </button>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <div className="gallery-container">
+            {data.map((shoe) => {
+              return <ShoeCard key={shoe.id} shoe={shoe} />;
+            })}
+            {showModal && <SingleShoeModal selectedShoe={selectedShoe} />}
+            {showFormModal && <ShoeFormModal />}
+          </div>
+          <button onClick={handleClick} className="add-btn">
+            ADD NEW SHOE
+          </button>
+        </>
+      )}
     </div>
   );
 };

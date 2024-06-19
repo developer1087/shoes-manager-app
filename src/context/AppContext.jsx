@@ -4,16 +4,8 @@ import axios from "axios";
 
 const AppContext = createContext();
 
-const shoes = async () => {
-  try {
-    const shoesList = await getShoes();
-    return shoesList;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const AppProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [shoeId, setShoeId] = useState(1);
   const [data, setData] = useState([]);
@@ -22,10 +14,23 @@ const AppProvider = ({ children }) => {
   const [isEdit, setIsEdit] = useState(false);
   useEffect(() => {
     async function fetchMyAPI() {
+      setIsLoading(true);
       setData(await shoes());
+      setIsLoading(false);
     }
     fetchMyAPI();
   }, []);
+
+  const shoes = async () => {
+    try {
+      setIsLoading(true);
+      const shoesList = await getShoes();
+      setIsLoading(false);
+      return shoesList;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const deleteShoeItemByID = async (id) => {
     await axios.delete(
@@ -47,7 +52,9 @@ const AppProvider = ({ children }) => {
     }
     setData(await shoes());
     setShowFormModal(false);
+    return;
   };
+
   const editShoe = async (shoeData, shoeId) => {
     try {
       const response = await axios.put(

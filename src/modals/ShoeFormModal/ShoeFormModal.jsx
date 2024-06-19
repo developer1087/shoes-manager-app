@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import axios from "axios";
 
 import "./ShoeFormModal.css";
@@ -33,8 +33,15 @@ const ShoeFormModal = () => {
     });
   };
 
+  const buttonRef = useRef(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (buttonRef.current && !buttonRef.current.disabled) {
+      buttonRef.current.disabled = true;
+      // Perform the action
+      // After the action is complete, reset buttonRef.current.disabled to false
+    }
+
     console.log("here");
     const shoeData = {
       image: shoeState.image,
@@ -42,7 +49,11 @@ const ShoeFormModal = () => {
       price: shoeState.price,
     };
     const shoeId = selectedShoe.id;
-    isEdit ? editShoe(shoeData, shoeId) : addShoe(shoeData);
+    shoeState.title.length >= 3
+      ? isEdit
+        ? editShoe(shoeData, shoeId)
+        : addShoe(shoeData)
+      : alert("Shoe Title must be at least 3 characters long.");
   };
   return (
     <div className="form-container">
@@ -74,7 +85,9 @@ const ShoeFormModal = () => {
           value={shoeState.price}
           onChange={handleChange}
         />
-        <button type="submit">{isEdit ? "Edit Shoe" : "Add Shoe"}</button>
+        <button type="submit" ref={buttonRef}>
+          {isEdit ? "Edit Shoe" : "Add Shoe"}
+        </button>
       </form>
     </div>
   );

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
@@ -12,6 +12,7 @@ import Spinner from "./components/Spinner/Spinner";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 
 import "./css/index.css";
+import { AppContext, AppProvider } from "./context/AppContext";
 
 const router = createBrowserRouter([
   {

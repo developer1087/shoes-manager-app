@@ -6,6 +6,7 @@ import { AppContext } from "../../context/AppContext";
 import "./GalleryPage.css";
 import SingleShoeModal from "../../modals/SingleShoeModal/SingleShoeModal";
 import Spinner from "../../components/Spinner/Spinner";
+import { useNavigation } from "react-router-dom";
 const GalleryPage = () => {
   const {
     data,
@@ -14,7 +15,7 @@ const GalleryPage = () => {
     showFormModal,
     setShowFormModal,
     setIsEdit,
-    isLoading,
+    // isLoading,
   } = useContext(AppContext);
 
   const handleClick = () => {
@@ -22,24 +23,23 @@ const GalleryPage = () => {
     setShowFormModal(true);
   };
 
+  const navigation = useNavigation();
+
+  const isLoading = navigation.state === "loading";
+
   return (
     <div className="main-container">
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          <div className="gallery-container">
-            {data.map((shoe) => {
-              return <ShoeCard key={shoe.id} shoe={shoe} />;
-            })}
-            {showModal && <SingleShoeModal selectedShoe={selectedShoe} />}
-            {showFormModal && <ShoeFormModal />}
-          </div>
-          <button onClick={handleClick} className="add-btn">
-            ADD NEW SHOE
-          </button>
-        </>
-      )}
+      <div className="gallery-container">
+        {isLoading && <Spinner />}
+        {data.map((shoe) => {
+          return <ShoeCard key={shoe.id} shoe={shoe} />;
+        })}
+        {showModal && <SingleShoeModal selectedShoe={selectedShoe} />}
+        {showFormModal && <ShoeFormModal />}
+      </div>
+      <button onClick={handleClick} className="add-btn">
+        ADD NEW SHOE
+      </button>
     </div>
   );
 };

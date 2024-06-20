@@ -1,0 +1,19 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff5e1;
+}
+
+.links ul {
+  display: flex;
+}
+
+.links ul li {
+  padding: 0.5rem;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: black;
+}

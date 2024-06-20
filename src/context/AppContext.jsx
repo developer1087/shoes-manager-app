@@ -20,7 +20,7 @@ const AppProvider = ({ children }) => {
     }
     fetchMyAPI();
   }, []);
-
+  console.log(isLoading, "avi");
   const shoes = async () => {
     try {
       setIsLoading(true);
@@ -29,6 +29,7 @@ const AppProvider = ({ children }) => {
       return shoesList;
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 

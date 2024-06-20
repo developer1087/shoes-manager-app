@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-import SingleShoeModal from "../../modals/SingleShoeModal/SingleShoeModal";
 
 import "./ShoeCard.css";
 

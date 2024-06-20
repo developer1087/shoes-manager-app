@@ -5,14 +5,8 @@ import "./SingleShoeModal.css";
 import { AppContext } from "../../context/AppContext";
 
 const SingleShoeModal = ({ selectedShoe }) => {
-  const {
-    showModal,
-    setShowModal,
-    setShowFormModal,
-    data,
-    deleteShoeItemByID,
-    setIsEdit,
-  } = useContext(AppContext);
+  const { setShowModal, setShowFormModal, deleteShoeItemByID, setIsEdit } =
+    useContext(AppContext);
 
   const handleXClick = () => {
     setShowModal(false);
